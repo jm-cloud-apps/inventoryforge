@@ -4,6 +4,8 @@
     { "match": "Prismatic Evolutions", "label": "Prismatic Evolutions" },
     { "match": "Ascended Heroes", "label": "Ascended Heroes" },
     { "match": "Phantasmal Flames", "label": "Phantasmal Flames" },
-    { "match": "Moltres", "label": "Moltres" }
+    { "match": "Moltres", "label": "Moltres" },
+    { "match": "30th Anniversary", "label": "30th Anniversary" },
+    { "match": "Pitch Black", "label": "Pitch Black" }
   ]
 }
