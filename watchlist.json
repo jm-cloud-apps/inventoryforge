@@ -1,0 +1,9 @@
+{
+  "_comment": "Master list of things to watch for. Case-insensitive substring match against product titles, AND used as the search query at each retailer. Add/remove any time; re-run the collector (or wait for the next scheduled run). 'label' is optional, for nicer dashboard grouping. Tip: specific set names (e.g. 'Prismatic Evolutions') work better than broad terms like 'Elite Trainer Box' (which matches every set and makes runs slower).",
+  "keywords": [
+    { "match": "Prismatic Evolutions", "label": "Prismatic Evolutions" },
+    { "match": "Ascended Heroes", "label": "Ascended Heroes" },
+    { "match": "Phantasmal Flames", "label": "Phantasmal Flames" },
+    { "match": "Moltres", "label": "Moltres" }
+  ]
+}

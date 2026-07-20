@@ -1,0 +1,5 @@
+# patchright = stealth-patched Playwright. Vanilla Playwright is Cloudflare-blocked here;
+# patchright (headed) passes. After install, run:  patchright install chromium
+patchright>=1.44
+requests>=2.31
+python-dotenv>=1.0

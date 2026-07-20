@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  launchd job: run the collector every 20 minutes.
+  Install:
+    cp scripts/com.inventoryforge.collector.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.inventoryforge.collector.plist
+  Uninstall:
+    launchctl unload ~/Library/LaunchAgents/com.inventoryforge.collector.plist
+  Tail the log:
+    tail -f "<repo>/collector.log"
+  NOTE: the absolute paths below assume the repo lives where it is now. If you move
+  the repo, update the two <string> paths and reload the job.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.inventoryforge.collector</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/michaeljacinto/Library/CloudStorage/OneDrive-Personal/Desktop - onedrive/github/inventoryforge/scripts/run_collector.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>1200</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/michaeljacinto/Library/CloudStorage/OneDrive-Personal/Desktop - onedrive/github/inventoryforge/collector.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/michaeljacinto/Library/CloudStorage/OneDrive-Personal/Desktop - onedrive/github/inventoryforge/collector.log</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+</dict>
+</plist>

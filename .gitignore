@@ -1,0 +1,19 @@
+# secrets
+.env
+
+# python
+venv/
+__pycache__/
+*.pyc
+
+# collector runtime state (local only)
+collector/.pw-user-data/
+collector/.pw-patchright/
+collector.log
+_diag*.py
+
+# per-run diff state (runtime only; not part of the site)
+data/state.json
+
+# os
+.DS_Store

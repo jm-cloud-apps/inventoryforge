@@ -1,0 +1,29 @@
+{
+  "region": "Vancouver / Burnaby, BC",
+  "pollMinutes": 20,
+  "_note": "Search queries come from watchlist.json. Optional per-retailer 'searchTerms' are appended as extra queries.",
+  "retailers": {
+    "ebgames": {
+      "enabled": true,
+      "displayName": "EB Games",
+      "origin": "https://www.ebgames.ca",
+      "storeTerms": ["Burnaby", "Vancouver"],
+      "keepCities": ["Burnaby", "Vancouver"],
+      "storeSearchLimit": 10,
+      "maxProducts": 20,
+      "_note": "PRIMARY TCG source. Per-store availability via /api/store/SearchStores; status is a red/yellow/green color per store. storeTerms feed that endpoint; keepCities filters which returned stores we keep. maxProducts caps per-run product-page visits (broad keywords => more products => slower)."
+    },
+    "londondrugs": {
+      "enabled": true,
+      "displayName": "London Drugs",
+      "origin": "https://www.londondrugs.com",
+      "_note": "Carries TCG. v1 = online listing + price. Per-store 'Check Nearby Availability' (Mozu/Kibo inventory API) is a v2."
+    },
+    "superstore": {
+      "enabled": false,
+      "displayName": "Real Canadian Superstore",
+      "origin": "https://www.realcanadiansuperstore.ca",
+      "_note": "DISABLED by default: RCSS online catalog is snacks/plush/apparel only — Pokemon cards are in-store impulse items not listed online, so card keywords match nothing. Set enabled:true if you also want to track Pokemon snacks/merch there."
+    }
+  }
+}

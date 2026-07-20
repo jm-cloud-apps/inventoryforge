@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InventoryForge — Pokémon Restock Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎴</text></svg>" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🎴</span>
+      <div>
+        <h1>InventoryForge</h1>
+        <p class="sub">Pokémon restock tracker · <span id="region">Vancouver / Burnaby</span></p>
+      </div>
+    </div>
+    <div class="updated">
+      <span class="dot" id="freshdot"></span>
+      <span id="updated">loading…</span>
+    </div>
+  </header>
+
+  <section class="watchlist" id="watchlist-wrap">
+    <span class="watchlist-label">Watching:</span>
+    <div id="watchlist" class="chips"></div>
+  </section>
+
+  <div id="sources" class="sources"></div>
+
+  <section class="restocks" id="restocks-wrap" hidden>
+    <h2>🔔 Recently restocked</h2>
+    <div id="restocks" class="restock-strip"></div>
+  </section>
+
+  <section class="controls">
+    <input type="search" id="q" placeholder="Filter by title…" />
+    <select id="retailer"><option value="">All retailers</option></select>
+    <select id="store"><option value="">All stores</option></select>
+    <label class="toggle"><input type="checkbox" id="instock" /> In stock only</label>
+    <span class="count" id="count"></span>
+  </section>
+
+  <main>
+    <table id="grid">
+      <thead>
+        <tr>
+          <th>Product</th><th>Retailer</th><th>Store</th>
+          <th>Status</th><th>Price</th><th>Last restock</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>No matching items yet.</p>
+  </main>
+
+  <footer>
+    <p>Data collected locally · unofficial · personal use. Statuses can change minute-to-minute — call the store to confirm.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
