@@ -11,19 +11,27 @@
       "keepCities": ["Burnaby", "Vancouver"],
       "storeSearchLimit": 10,
       "maxProducts": 20,
-      "_note": "PRIMARY TCG source. Per-store availability via /api/store/SearchStores; status is a red/yellow/green color per store. storeTerms feed that endpoint; keepCities filters which returned stores we keep. maxProducts caps per-run product-page visits (broad keywords => more products => slower)."
+      "_note": "PRIMARY TCG source. Per-store availability via /api/store/SearchStores; status is a red/yellow/green color per store."
     },
     "londondrugs": {
       "enabled": true,
       "displayName": "London Drugs",
       "origin": "https://www.londondrugs.com",
-      "_note": "Carries TCG. v1 = online listing + price. Per-store 'Check Nearby Availability' (Mozu/Kibo inventory API) is a v2."
+      "storeSearchPostal": "V5H 2E2",
+      "maxProducts": 12,
+      "targetStores": [
+        { "name": "Kingsway Plaza", "postal": "V5H 2E2" },
+        { "name": "Marine Way & Byrne", "postal": "V5J 0A2" },
+        { "name": "The Amazing Brentwood", "postal": "V5C 0K3" },
+        { "name": "41st & Victoria", "postal": "V5P 3W2" }
+      ],
+      "_note": "Per-store availability via the PDP store picker: searches storeSearchPostal, scrapes the store cards, keeps targetStores matched by postal. Status = 'Available for pickup today' (In Stock) / 'Not In Stock'. Slower than EB Games (opens each product's picker)."
     },
     "superstore": {
       "enabled": false,
       "displayName": "Real Canadian Superstore",
       "origin": "https://www.realcanadiansuperstore.ca",
-      "_note": "DISABLED by default: RCSS online catalog is snacks/plush/apparel only — Pokemon cards are in-store impulse items not listed online, so card keywords match nothing. Set enabled:true if you also want to track Pokemon snacks/merch there."
+      "_note": "DISABLED: RCSS lists no Pokemon TCG online (verified — snacks/plush/apparel only; cards are in-store impulse items not listed anywhere online). Nothing to scrape."
     }
   }
 }
