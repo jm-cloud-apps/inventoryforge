@@ -79,18 +79,32 @@ A real Chromium window opens while it runs — that's required to pass Cloudflar
 when the run finishes (~1–2 min). `scripts/run_collector.sh` does one full cycle **and**
 commits+pushes `data/` if it changed (that's what redeploys the Pages site).
 
-## Scheduling (macOS launchd)
+## Scheduling (macOS) — and the "protected folder" catch
 
+⚠️ **macOS blocks background (launchd) jobs from touching files under Desktop / Documents /
+Downloads / iCloud / OneDrive (CloudStorage)** unless the runner has Full Disk Access. If the
+repo lives in one of those (e.g. a OneDrive-synced Desktop), a launchd job dies instantly with
+`Operation not permitted` and never runs. Three ways to handle it:
+
+1. **Run it manually** (simplest, zero background popups) — just run this when you want fresh data:
+   ```bash
+   ./scripts/run_collector.sh
+   ```
+2. **Move the repo out of the protected path** (e.g. `~/inventoryforge`), fix the two absolute
+   paths in `scripts/com.inventoryforge.collector.plist`, then schedule it:
+   ```bash
+   cp scripts/com.inventoryforge.collector.plist ~/Library/LaunchAgents/
+   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.inventoryforge.collector.plist
+   tail -f collector.log
+   ```
+3. **Grant Full Disk Access** to `/bin/bash` (System Settings → Privacy & Security → Full Disk
+   Access) so the scheduled job can reach the protected folder — broadest, keeps the repo put.
+
+Either scheduled route runs **headed**, so a browser window pops up each cycle (default `1800`
+= 30 min, in the plist's `StartInterval`). Stop a running job with:
 ```bash
-cp scripts/com.inventoryforge.collector.plist ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.inventoryforge.collector.plist
-tail -f collector.log
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.inventoryforge.collector.plist
 ```
-
-⚠️ **Heads-up:** because it runs headed, a browser window pops up each cycle (default every
-20 min) while you're logged in. If that's annoying, raise `StartInterval` in the plist (e.g.
-`1800` = 30 min), or just run it manually when you're at the machine. This is the trade-off
-for beating the bot-walls for free.
 
 ## Deploying the dashboard (GitHub Pages)
 
