@@ -89,8 +89,15 @@ def collect(args):
                 continue
             try:
                 got = REGISTRY[name](ctx, rcfg, keywords)
-                items.extend(got)                # fresh rows
-                sources[disp] = {"status": "ok", "count": len(got), "at": ts, "lastOkAt": ts}
+                prev_count = len(prev_by_retailer.get(disp, []))
+                if not got and prev_count:
+                    # Returned nothing but had rows last time -> almost certainly a transient
+                    # bot-block/hiccup, not a real empty. Keep last-known instead of wiping it.
+                    print(f"[{name}] 0 rows but had {prev_count} last run — treating as unreachable")
+                    carry_forward(disp, "unreachable")
+                else:
+                    items.extend(got)            # fresh rows
+                    sources[disp] = {"status": "ok", "count": len(got), "at": ts, "lastOkAt": ts}
             except Exception as e:
                 print(f"[{name}] ERROR: {e}")
                 carry_forward(disp, "unreachable")
@@ -112,6 +119,24 @@ def collect(args):
             restocks.append(it)
         new_state[key] = {"inStock": in_now, "lastRestock": it["lastRestock"], "status": it.get("status")}
 
+    state.save(new_state)  # runtime diff state (git-ignored) — always persist
+    fresh = len([i for i in items if not i.get("stale")])
+    unreachable = [d for d, s in sources.items() if s["status"] == "unreachable"]
+
+    # Material-change gate: only rewrite latest.json (=> only commit + push + redeploy) when
+    # item statuses or source reachability actually changed vs the published snapshot. A run
+    # that finds nothing new leaves latest.json untouched, so the git history stays quiet and
+    # "Updated" on the page reflects the last real change, not the last check.
+    def signature(items_list, sources_map):
+        isig = sorted((f"{i['retailer']}|{i['store']}|{i.get('productId') or i.get('title')}",
+                       i.get("status")) for i in items_list)
+        ssig = sorted((k, (v or {}).get("status")) for k, v in sources_map.items())
+        return [isig, ssig]
+
+    if signature(items, sources) == signature(prev_latest.get("items", []), prev_latest.get("sources", {})):
+        print(f"[run] no material change ({fresh} rows) — latest.json untouched, nothing to push @ {ts}")
+        return
+
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / "latest.json").write_text(json.dumps({
         "updatedAt": ts,
@@ -128,11 +153,8 @@ def collect(args):
                 f.write(json.dumps({"at": ts, **{k: it.get(k) for k in
                         ("retailer", "store", "title", "price", "url")}}) + "\n")
 
-    state.save(new_state)
-    fresh = len([i for i in items if not i.get("stale")])
-    unreachable = [d for d, s in sources.items() if s["status"] == "unreachable"]
-    print(f"[run] {fresh} fresh rows, {len(restocks)} restock(s), "
-          f"unreachable: {unreachable or 'none'} @ {ts}")
+    print(f"[run] CHANGED — {fresh} rows, {len(restocks)} restock(s), "
+          f"unreachable: {unreachable or 'none'} @ {ts}; wrote latest.json")
 
     if restocks and not args.dry_run:
         alerts.notify(restocks)

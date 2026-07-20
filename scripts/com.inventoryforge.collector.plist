@@ -25,10 +25,14 @@
     <string>/bin/bash</string>
     <string>/Users/michaeljacinto/Library/CloudStorage/OneDrive-Personal/Desktop - onedrive/github/inventoryforge/scripts/run_collector.sh</string>
   </array>
-  <key>StartInterval</key>
-  <integer>1800</integer>
-  <key>RunAtLoad</key>
-  <true/>
+  <!-- Runs a few times a day (9am / 1pm / 6pm) instead of every N minutes, to keep the
+       headed-browser popups infrequent. Add/remove <dict> entries to change the times. -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
   <key>StandardOutPath</key>
   <string>/Users/michaeljacinto/Library/CloudStorage/OneDrive-Personal/Desktop - onedrive/github/inventoryforge/collector.log</string>
   <key>StandardErrorPath</key>
