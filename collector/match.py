@@ -1,4 +1,5 @@
 """Keyword matching against the editable watchlist (watchlist.json)."""
+import unicodedata
 
 
 def normalize(keywords):
@@ -13,6 +14,13 @@ def normalize(keywords):
 
 
 _EXCLUDES = []
+_REQUIRE = []
+
+
+def fold(s):
+    """Lowercase + strip accents so 'Pokémon' and 'Pokemon' compare equal."""
+    return "".join(c for c in unicodedata.normalize("NFKD", (s or "").lower())
+                   if not unicodedata.combining(c))
 
 
 def set_excludes(terms):
@@ -21,17 +29,27 @@ def set_excludes(terms):
     the sealed product you're hunting. Module-level because each retailer calls
     matched_label() directly and the collector is single-threaded; set once per run."""
     global _EXCLUDES
-    _EXCLUDES = [t.lower() for t in (terms or []) if t]
+    _EXCLUDES = [fold(t) for t in (terms or []) if t]
+
+
+def set_require(terms):
+    """A title must contain at least one of these to match at all. Defaults to 'Pokemon',
+    which stops generic keywords pulling in unrelated products — e.g. '30th Anniversary'
+    was matching 'U2 - The Joshua Tree: 30th Anniversary - 2 LP Vinyl'."""
+    global _REQUIRE
+    _REQUIRE = [fold(t) for t in (terms or []) if t]
 
 
 def matched_label(title, keywords):
-    """Case-insensitive substring match. Returns the label of the first hit, or None.
-    Exclusions win over keywords."""
-    t = (title or "").lower()
+    """Case-insensitive, accent-insensitive substring match. Returns the label of the first
+    hit, or None. Order: required terms, then exclusions, then keywords."""
+    t = fold(title)
+    if _REQUIRE and not any(r in t for r in _REQUIRE):
+        return None
     if any(x in t for x in _EXCLUDES):
         return None
     for kw in keywords:
-        if kw["match"].lower() in t:
+        if fold(kw["match"]) in t:
             return kw["label"]
     return None
 

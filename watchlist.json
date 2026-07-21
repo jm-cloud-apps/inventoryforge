@@ -1,6 +1,8 @@
 {
   "_comment": "Master list of things to watch for. Case-insensitive substring match against product titles, AND used as the search query at each retailer. Add/remove any time; re-run the collector (or wait for the next scheduled run). 'label' is optional, for nicer dashboard grouping. Tip: specific set names (e.g. 'Prismatic Evolutions') work better than broad terms like 'Elite Trainer Box' (which matches every set and makes runs slower).",
   "_exclude_comment": "Any title containing one of these is ignored, even if it matches a keyword. Keeps accessories (binders, portfolios, sticker/poster collections) out of your results and speeds up runs. Exclusions beat keywords.",
+  "_require_comment": "A title must contain at least one of these to match at all (accent-insensitive, so 'Pokemon' also matches 'Pokemon'). Stops generic keywords pulling in unrelated products - '30th Anniversary' was matching a U2 Joshua Tree vinyl.",
+  "require": ["Pokemon"],
   "keywords": [
     { "match": "Prismatic Evolutions", "label": "Prismatic Evolutions" },
     { "match": "Ascended Heroes", "label": "Ascended Heroes" },
