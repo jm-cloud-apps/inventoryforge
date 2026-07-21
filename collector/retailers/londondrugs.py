@@ -21,10 +21,14 @@ def _norm_postal(s):
 
 
 def _status(card_text):
+    """LD uses several badge wordings: 'In Stock', 'Available for pickup today',
+    'Not In Stock'. Check the negatives FIRST — 'Not In Stock' contains 'in stock',
+    so order is what keeps a plain 'in stock' match from misreading an out-of-stock card.
+    ('In-Store Pickup' is a label on every card and must not count as in-stock.)"""
     t = card_text.lower()
-    if "not in stock" in t or "out of stock" in t or "unavailable" in t:
+    if "not in stock" in t or "out of stock" in t or "unavailable" in t or "not available" in t:
         return "Out of Stock"
-    if "available for pickup" in t or "pickup today" in t or "available today" in t:
+    if "in stock" in t or "available for pickup" in t or "pickup today" in t or "available today" in t:
         return "In Stock"
     return "Unknown"
 
