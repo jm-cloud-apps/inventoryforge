@@ -25,11 +25,19 @@
     <string>/bin/bash</string>
     <string>/Users/michaeljacinto/Library/CloudStorage/OneDrive-Personal/Desktop - onedrive/github/inventoryforge/scripts/run_collector.sh</string>
   </array>
-  <!-- Runs a few times a day (9am / 1pm / 6pm) instead of every N minutes, to keep the
-       headed-browser popups infrequent. Add/remove <dict> entries to change the times. -->
+  <!-- Times are LOCAL (Pacific). Morning sweep every 30 min 8:45-11:45 (when restocks land),
+       then afternoon + evening checks. NOT every 15 min on purpose: a full run takes ~7-8
+       min, so 15-min spacing would leave almost no gap, and rapid-fire polling already got
+       us Cloudflare-throttled once. Add/remove <dict> entries to change the times. -->
   <key>StartCalendarInterval</key>
   <array>
-    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>45</integer></dict>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>45</integer></dict>
+    <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>45</integer></dict>
+    <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>45</integer></dict>
     <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
     <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
   </array>

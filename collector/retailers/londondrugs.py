@@ -63,8 +63,11 @@ def _clear_store(page, origin):
 
 def _open_picker(page, postal):
     """Open the store picker and search a postal code. Returns True if the list rendered."""
+    # The opener RENAMES itself once a store is selected ("Check Availability at Other
+    # Stores"), so both wordings must be handled or every store after the first fails.
     op = (page.query_selector("text=/set your store/i")
           or page.query_selector("text=/select your store/i")
+          or page.query_selector("text=/check availability at other stores/i")
           or page.query_selector("text=/change store/i"))
     if not op:
         return False
@@ -80,34 +83,38 @@ def _open_picker(page, postal):
     return True
 
 
-def _read_qty(page, url, postal):
-    """For an in-stock row: select that store, then read its per-store count
-    ('16 Items in Stock'). Only worth doing for in-stock rows — it costs a page cycle."""
+_QTY_JS = r"""() => { const m = (document.body.innerText||'').match(/(\d+)\s+Items?\s+in\s+Stock/i);
+                      return m ? parseInt(m[1], 10) : null; }"""
+
+
+def _read_qtys(page, url, postals):
+    """Load the product page ONCE, then switch stores in place, reading each store's count
+    ('61 Items in Stock'). Switching works because the picker reopens via 'Check Availability
+    at Other Stores' once a store is set — no clear/reload needed between stores.
+    Returns {normalized_postal: count}."""
+    out = {}
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=45000)
-        page.evaluate(_CLEAR_STORE_JS)          # reset so the opener is 'Set Your Store'
+        page.evaluate(_CLEAR_STORE_JS)          # start from the 'Set Your Store' wording
         page.reload(wait_until="domcontentloaded", timeout=45000)
         settle(page, timeout=8000)
-        try:                                     # wait for the picker button to hydrate
-            page.wait_for_selector("text=/set your store/i", timeout=10000)
-        except Exception:
-            pass
-        if not _open_picker(page, postal):
-            return None
-        if not page.evaluate(_SET_STORE_JS, postal):
-            return None
-        try:                                     # wait for the count to render, don't guess
-            page.wait_for_function(
-                r"() => /\d+\s+Items?\s+in\s+Stock/i.test(document.body.innerText || '')",
-                timeout=10000)
-        except Exception:
-            pass
-        return page.evaluate(
-            r"""() => { const m = (document.body.innerText||'').match(/(\d+)\s+Items?\s+in\s+Stock/i);
-                        return m ? parseInt(m[1], 10) : null; }"""
-        )
-    except Exception:
-        return None
+        for postal in postals:
+            if not _open_picker(page, postal):
+                continue
+            if not page.evaluate(_SET_STORE_JS, postal):
+                continue
+            try:                                 # wait for the count/status to render
+                page.wait_for_function(
+                    r"() => /\d+\s+Items?\s+in\s+Stock|Not In Stock/i.test(document.body.innerText || '')",
+                    timeout=10000)
+            except Exception:
+                pass
+            q = page.evaluate(_QTY_JS)
+            if q is not None:
+                out[_norm_postal(postal)] = q
+    except Exception as e:
+        print(f"[londondrugs] qty read failed: {e}")
+    return out
 
 
 def _search_cards(page, origin, term):
@@ -214,14 +221,23 @@ def fetch(ctx, cfg, keywords):
                 })
         # Quantity pass — ONLY for in-stock rows (each costs a page cycle, and out-of-stock
         # rows have no count anyway). Gives "In Stock · 16 left" instead of just "In Stock".
-        if cfg.get("fetchQuantity", False):
+        if cfg.get("fetchQuantity", True):
             raw_postal = {_norm_postal(s["postal"]): s["postal"] for s in cfg.get("targetStores", [])}
             in_stock = [i for i in items if i.get("status") == "In Stock"]
-            for it in in_stock:
-                pc = str(it.get("productId", "")).split("|")[-1]
-                q = _read_qty(page, it["url"], raw_postal.get(pc, postal))
-                if q is not None:
-                    it["qty"] = q
+            by_url = {}
+            for it in in_stock:                      # group so each product loads once
+                by_url.setdefault(it["url"], []).append(it)
+            for url, rows in by_url.items():
+                wanted = []
+                for r in rows:
+                    p = raw_postal.get(str(r.get("productId", "")).split("|")[-1])
+                    if p and p not in wanted:
+                        wanted.append(p)
+                qmap = _read_qtys(page, url, wanted)
+                for r in rows:
+                    q = qmap.get(str(r.get("productId", "")).split("|")[-1])
+                    if q is not None:
+                        r["qty"] = q
             got = len([i for i in in_stock if i.get("qty") is not None])
             print(f"[londondrugs] quantity pass: {got}/{len(in_stock)} in-stock rows got a count")
             _clear_store(page, cfg["origin"])   # leave the profile store-less for next run

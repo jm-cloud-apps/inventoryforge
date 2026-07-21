@@ -19,14 +19,14 @@
       "origin": "https://www.londondrugs.com",
       "storeSearchPostal": "V5H 2E2",
       "maxProducts": 12,
-      "fetchQuantity": false,
+      "fetchQuantity": true,
       "targetStores": [
         { "name": "Kingsway Plaza", "postal": "V5H 2E2" },
         { "name": "Marine Way & Byrne", "postal": "V5J 0A2" },
         { "name": "The Amazing Brentwood", "postal": "V5C 0K3" },
         { "name": "41st & Victoria", "postal": "V5P 3W2" }
       ],
-      "_note": "Per-store availability via the PDP store picker: searches storeSearchPostal, scrapes the store cards, keeps targetStores matched by postal. Status badges seen: 'In Stock' / 'Available for pickup today' / 'Not In Stock'. fetchQuantity=true additionally reads the per-store count ('16 Items in Stock') for in-stock rows, but LD's store state doesn't reset reliably between reads so it only succeeds ~1 in 3 tries and adds a page cycle per in-stock row — left OFF by default."
+      "_note": "Per-store availability via the PDP store picker: searches storeSearchPostal, scrapes the store cards, keeps targetStores matched by postal. Status badges seen: 'In Stock' / 'Available for pickup today' / 'Not In Stock'. fetchQuantity=true also reads each store's count ('61 Items in Stock') for in-stock rows: it loads the product once and switches stores in place (the picker reopens via 'Check Availability at Other Stores' once a store is set)."
     },
     "superstore": {
       "enabled": false,
