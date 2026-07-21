@@ -1,5 +1,5 @@
 // InventoryForge dashboard — reads data/latest.json and renders one filterable page.
-const state = { items: [], filtered: [] };
+const state = { items: [], filtered: [], keyword: null };
 
 const el = (id) => document.getElementById(id);
 
@@ -46,8 +46,9 @@ function render(data) {
 
   // watchlist chips
   const kws = (data.watchlist || []).map((k) => (typeof k === "string" ? k : k.label || k.match));
-  el("watchlist").innerHTML = kws.map((k) => `<span class="chip">${esc(k)}</span>`).join("") ||
-    `<span class="chip">everything</span>`;
+  el("watchlist").innerHTML = kws.map((k) =>
+    `<button type="button" class="chip${state.keyword === k ? " active" : ""}" data-kw="${esc(k)}">${esc(k)}</button>`
+  ).join("") || `<span class="chip">everything</span>`;
 
   renderSources(data.sources);
 
@@ -99,6 +100,7 @@ function apply() {
     if (r && i.retailer !== r) return false;
     if (st && i.store !== st) return false;
     if (inOnly && !isInStock(i.status)) return false;
+    if (state.keyword && i.matchedKeyword !== state.keyword) return false;
     return true;
   });
   // in-stock first, then by retailer/title
@@ -119,13 +121,18 @@ function paint() {
       <td class="title-cell">${url}</td>
       <td class="retailer-tag">${esc(i.retailer)}</td>
       <td>${esc(i.store)}</td>
-      <td><span class="badge ${sc}">${esc(i.status || "Unknown")}</span>${staleTag}</td>
+      <td><span class="badge ${sc}">${esc(i.status || "Unknown")}</span>${i.qty != null ? ` <span class="qty">${i.qty} left</span>` : ""}${staleTag}</td>
       <td>${i.price != null ? "$" + Number(i.price).toFixed(2) : "—"}</td>
       <td>${relTime(i.lastRestock)}</td>
     </tr>`;
   }).join("");
   el("rows").innerHTML = rows;
   el("empty").hidden = state.filtered.length > 0;
+  if (!state.filtered.length) {
+    el("empty").textContent = (el("instock").checked && state.items.length)
+      ? "Nothing in stock right now — untick “In stock only” to see everything."
+      : "No matching items yet.";
+  }
   el("count").textContent = `${state.filtered.length} / ${state.items.length} shown`;
 }
 
@@ -135,6 +142,16 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) =>
 
 ["q", "retailer", "store", "instock"].forEach((id) =>
   el(id).addEventListener("input", apply));
+
+// Click a "Watching" chip to filter to that keyword; click it again to clear.
+el("watchlist").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-kw]");
+  if (!btn) return;
+  state.keyword = state.keyword === btn.dataset.kw ? null : btn.dataset.kw;
+  el("watchlist").querySelectorAll("[data-kw]").forEach((c) =>
+    c.classList.toggle("active", c.dataset.kw === state.keyword));
+  apply();
+});
 
 load();
 setInterval(load, 60000); // re-read the JSON every minute
