@@ -121,7 +121,10 @@ def _search_cards(page, origin, term):
     """Navigate to the search page and scrape product cards, waiting for the SPA to render.
     LD is a Next.js SPA whose results appear AFTER networkidle, so we wait for a product
     link and retry once — otherwise the scrape intermittently sees an empty page."""
-    for _ in range(2):
+    cards = []
+    for attempt in range(3):
+        if attempt:                              # back off: LD's SPA returns an empty list
+            page.wait_for_timeout(2000 * attempt)  # when hit with rapid successive queries
         page.goto(f'{origin}/search?q={quote(term)}', wait_until="domcontentloaded", timeout=45000)
         try:
             page.wait_for_selector('a[href*="/p/"]', timeout=15000)
@@ -152,8 +155,14 @@ def _search_cards(page, origin, term):
 
 def _find_products(page, cfg, keywords):
     matched = {}
-    for term in search_terms(keywords, cfg.get("searchTerms")):
-        for c in _search_cards(page, cfg["origin"], term):
+    terms = search_terms(keywords, cfg.get("searchTerms"))
+    for n, term in enumerate(terms):
+        if n:
+            page.wait_for_timeout(1500)      # breathe between queries so the SPA keeps up
+        found = _search_cards(page, cfg["origin"], term)
+        if not found:
+            print(f"[londondrugs] search '{term}' returned nothing after retries")
+        for c in found:
             label = matched_label(c["title"], keywords)
             if label:
                 matched[c["code"]] = {**c, "label": label}
