@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 
 from . import alerts, state
 from .browser import browser_context
-from .match import matched_label, normalize  # noqa: F401 (matched_label used by retailers)
+from .match import matched_label, normalize, set_excludes  # noqa: F401 (matched_label used by retailers)
 from .retailers import REGISTRY
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -56,7 +56,9 @@ def is_in_stock(status):
 def collect(args):
     load_dotenv(ROOT / ".env")
     config = load_json("config.json")
-    keywords = normalize(load_json("watchlist.json").get("keywords", []))
+    watchlist = load_json("watchlist.json")
+    keywords = normalize(watchlist.get("keywords", []))
+    set_excludes(watchlist.get("exclude", []))
     if not keywords:
         print("watchlist.json has no keywords — nothing to match. Add some and re-run.")
         return

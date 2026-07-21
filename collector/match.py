@@ -12,9 +12,24 @@ def normalize(keywords):
     return out
 
 
+_EXCLUDES = []
+
+
+def set_excludes(terms):
+    """Titles containing any of these are never matched — filters out accessories
+    (binders, portfolios, sticker/poster collections) that match a set name but aren't
+    the sealed product you're hunting. Module-level because each retailer calls
+    matched_label() directly and the collector is single-threaded; set once per run."""
+    global _EXCLUDES
+    _EXCLUDES = [t.lower() for t in (terms or []) if t]
+
+
 def matched_label(title, keywords):
-    """Case-insensitive substring match. Returns the label of the first hit, or None."""
+    """Case-insensitive substring match. Returns the label of the first hit, or None.
+    Exclusions win over keywords."""
     t = (title or "").lower()
+    if any(x in t for x in _EXCLUDES):
+        return None
     for kw in keywords:
         if kw["match"].lower() in t:
             return kw["label"]
