@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T01:03:20Z",
+  "updatedAt": "2026-07-26T15:51:08Z",
   "region": "Vancouver / Burnaby, BC",
   "watchlist": [
     "Prismatic Evolutions",
@@ -12,15 +12,15 @@
   ],
   "sources": {
     "EB Games": {
-      "status": "ok",
+      "status": "unreachable",
       "count": 20,
-      "at": "2026-07-26T01:03:20Z",
+      "at": "2026-07-26T15:51:08Z",
       "lastOkAt": "2026-07-26T01:03:20Z"
     },
     "London Drugs": {
-      "status": "ok",
+      "status": "unreachable",
       "count": 4,
-      "at": "2026-07-26T01:03:20Z",
+      "at": "2026-07-26T15:51:08Z",
       "lastOkAt": "2026-07-26T01:03:20Z"
     }
   },
@@ -35,7 +35,8 @@
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5J0A2",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": "2026-07-21T14:49:35Z"
+      "lastRestock": "2026-07-21T14:49:35Z",
+      "stale": true
     },
     {
       "retailer": "London Drugs",
@@ -47,7 +48,8 @@
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5C0K3",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": "2026-07-21T14:49:35Z"
+      "lastRestock": "2026-07-21T14:49:35Z",
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -59,7 +61,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930391/pokemon-trading-card-game-prismatic-evolutions-surprise-box",
       "productId": "930391",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -71,7 +74,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930391/pokemon-trading-card-game-prismatic-evolutions-surprise-box",
       "productId": "930391",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -83,7 +87,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930393/pokemon-trading-card-game-prismatic-evolutions-mini-tin-assorted-one-variation-chosen-at-random",
       "productId": "930393",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -95,7 +100,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930393/pokemon-trading-card-game-prismatic-evolutions-mini-tin-assorted-one-variation-chosen-at-random",
       "productId": "930393",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -107,7 +113,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/960534/pokemon-trading-card-game-mega-evolutions-ascended-heroes-2-pack-boosters-assorted-one-variation-chosen-at-random",
       "productId": "960534",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -119,7 +126,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/960534/pokemon-trading-card-game-mega-evolutions-ascended-heroes-2-pack-boosters-assorted-one-variation-chosen-at-random",
       "productId": "960534",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -131,7 +139,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/960535/pokemon-trading-card-game-mega-evolutions-ascended-heroes-elite-trainer-box",
       "productId": "960535",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -143,7 +152,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/960535/pokemon-trading-card-game-mega-evolutions-ascended-heroes-elite-trainer-box",
       "productId": "960535",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -155,7 +165,8 @@
       "url": "https://www.ebgames.ca/Toys-Collectibles/Games/930392/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-booster-bundle",
       "productId": "930392",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -167,7 +178,8 @@
       "url": "https://www.ebgames.ca/Toys-Collectibles/Games/930392/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-booster-bundle",
       "productId": "930392",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -179,7 +191,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/936673/pok-mon-tcg-scarlet-and-violet-prismatic-evolutions-super-premium-collection",
       "productId": "936673",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -191,7 +204,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/936673/pok-mon-tcg-scarlet-and-violet-prismatic-evolutions-super-premium-collection",
       "productId": "936673",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -203,7 +217,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930394/pok-mon-trading-card-game-prismatic-evolutions-blister-two-pack",
       "productId": "930394",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -215,7 +230,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930394/pok-mon-trading-card-game-prismatic-evolutions-blister-two-pack",
       "productId": "930394",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -227,7 +243,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930025/pok-mon-trading-card-game-prismatic-evolutions-elite-trainer-box",
       "productId": "930025",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -239,7 +256,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930025/pok-mon-trading-card-game-prismatic-evolutions-elite-trainer-box",
       "productId": "930025",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -251,7 +269,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939888/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection",
       "productId": "939888",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -263,7 +282,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939888/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection",
       "productId": "939888",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -275,7 +295,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939900/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection-french",
       "productId": "939900",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -287,7 +308,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939900/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection-french",
       "productId": "939900",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "London Drugs",
@@ -299,7 +321,8 @@
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5P3W2",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "London Drugs",
@@ -311,7 +334,8 @@
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5H2E2",
       "lastSeen": "2026-07-26T01:03:20Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     }
   ]
 }
