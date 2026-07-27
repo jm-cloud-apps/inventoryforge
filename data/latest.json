@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T01:00:05Z",
+  "updatedAt": "2026-07-27T15:45:05Z",
   "region": "Vancouver / Burnaby, BC",
   "watchlist": [
     "Prismatic Evolutions",
@@ -12,16 +12,16 @@
   ],
   "sources": {
     "EB Games": {
-      "status": "ok",
+      "status": "unreachable",
       "count": 17,
-      "at": "2026-07-27T01:00:05Z",
+      "at": "2026-07-27T15:45:05Z",
       "lastOkAt": "2026-07-27T01:00:05Z"
     },
     "London Drugs": {
       "status": "ok",
       "count": 32,
-      "at": "2026-07-27T01:00:05Z",
-      "lastOkAt": "2026-07-27T01:00:05Z"
+      "at": "2026-07-27T15:45:05Z",
+      "lastOkAt": "2026-07-27T15:45:05Z"
     }
   },
   "items": [
@@ -35,7 +35,7 @@
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-blister/p/L3408413",
       "productId": "L3408413|V5C0K3",
       "qty": 50,
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": "2026-07-21T14:49:35Z"
     },
     {
@@ -47,8 +47,8 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5J0A2",
-      "qty": 9,
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "qty": 7,
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": "2026-07-21T14:49:35Z"
     },
     {
@@ -60,8 +60,7 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5C0K3",
-      "qty": 32,
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": "2026-07-21T14:49:35Z"
     },
     {
@@ -74,7 +73,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930391/pokemon-trading-card-game-prismatic-evolutions-surprise-box",
       "productId": "930391",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -86,7 +86,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930391/pokemon-trading-card-game-prismatic-evolutions-surprise-box",
       "productId": "930391",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -98,7 +99,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930393/pokemon-trading-card-game-prismatic-evolutions-mini-tin-assorted-one-variation-chosen-at-random",
       "productId": "930393",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -110,7 +112,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930393/pokemon-trading-card-game-prismatic-evolutions-mini-tin-assorted-one-variation-chosen-at-random",
       "productId": "930393",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -122,7 +125,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/960534/pokemon-trading-card-game-mega-evolutions-ascended-heroes-2-pack-boosters-assorted-one-variation-chosen-at-random",
       "productId": "960534",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -134,7 +138,8 @@
       "url": "https://www.ebgames.ca/Toys-Collectibles/Games/930392/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-booster-bundle",
       "productId": "930392",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -146,7 +151,8 @@
       "url": "https://www.ebgames.ca/Toys-Collectibles/Games/930392/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-booster-bundle",
       "productId": "930392",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -158,7 +164,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/936673/pok-mon-tcg-scarlet-and-violet-prismatic-evolutions-super-premium-collection",
       "productId": "936673",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -170,7 +177,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/936673/pok-mon-tcg-scarlet-and-violet-prismatic-evolutions-super-premium-collection",
       "productId": "936673",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -182,7 +190,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930394/pok-mon-trading-card-game-prismatic-evolutions-blister-two-pack",
       "productId": "930394",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -194,7 +203,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930394/pok-mon-trading-card-game-prismatic-evolutions-blister-two-pack",
       "productId": "930394",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -206,7 +216,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930025/pok-mon-trading-card-game-prismatic-evolutions-elite-trainer-box",
       "productId": "930025",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -218,7 +229,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/930025/pok-mon-trading-card-game-prismatic-evolutions-elite-trainer-box",
       "productId": "930025",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -230,7 +242,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939888/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection",
       "productId": "939888",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -242,7 +255,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939888/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection",
       "productId": "939888",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -254,7 +268,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939900/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection-french",
       "productId": "939900",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "EB Games",
@@ -266,7 +281,8 @@
       "url": "https://www.ebgames.ca/Trading%20Cards/Games/939900/pok-mon-trading-card-game-scarlet-and-violet-prismatic-evolutions-premium-figure-collection-french",
       "productId": "939900",
       "lastSeen": "2026-07-27T01:00:05Z",
-      "lastRestock": null
+      "lastRestock": null,
+      "stale": true
     },
     {
       "retailer": "London Drugs",
@@ -277,7 +293,7 @@
       "price": 16.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-ascended-heroes-elite-trainer-box/p/L3310122",
       "productId": "L3310122|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -289,7 +305,7 @@
       "price": 16.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-ascended-heroes-elite-trainer-box/p/L3310122",
       "productId": "L3310122|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -301,7 +317,7 @@
       "price": 16.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-ascended-heroes-elite-trainer-box/p/L3310122",
       "productId": "L3310122|V5J0A2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -313,7 +329,7 @@
       "price": 16.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-ascended-heroes-elite-trainer-box/p/L3310122",
       "productId": "L3310122|V5C0K3",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -325,7 +341,7 @@
       "price": 7.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-pack/p/L3202782",
       "productId": "L3202782|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -337,7 +353,7 @@
       "price": 7.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-pack/p/L3202782",
       "productId": "L3202782|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -349,7 +365,7 @@
       "price": 7.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-pack/p/L3202782",
       "productId": "L3202782|V5J0A2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -361,7 +377,7 @@
       "price": 7.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-pack/p/L3202782",
       "productId": "L3202782|V5C0K3",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -373,7 +389,7 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-bundle-assorted/p/L3202790",
       "productId": "L3202790|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -385,7 +401,7 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-bundle-assorted/p/L3202790",
       "productId": "L3202790|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -397,7 +413,7 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-bundle-assorted/p/L3202790",
       "productId": "L3202790|V5J0A2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -409,7 +425,7 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-booster-bundle-assorted/p/L3202790",
       "productId": "L3202790|V5C0K3",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -421,7 +437,7 @@
       "price": 37.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-build-and-battle-booster-bundle/p/L3294680",
       "productId": "L3294680|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -433,7 +449,7 @@
       "price": 37.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-build-and-battle-booster-bundle/p/L3294680",
       "productId": "L3294680|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -445,7 +461,7 @@
       "price": 37.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-build-and-battle-booster-bundle/p/L3294680",
       "productId": "L3294680|V5J0A2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -457,7 +473,7 @@
       "price": 37.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-phantasmal-flames-build-and-battle-booster-bundle/p/L3294680",
       "productId": "L3294680|V5C0K3",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -469,7 +485,7 @@
       "price": 9.49,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-blister/p/L3408413",
       "productId": "L3408413|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": "2026-07-21T14:49:35Z"
     },
     {
@@ -481,7 +497,7 @@
       "price": 9.49,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-blister/p/L3408413",
       "productId": "L3408413|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -493,7 +509,7 @@
       "price": 9.49,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-blister/p/L3408413",
       "productId": "L3408413|V5J0A2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": "2026-07-21T14:49:35Z"
     },
     {
@@ -505,7 +521,7 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -517,7 +533,7 @@
       "price": 24.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408395",
       "productId": "L3408395|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -529,7 +545,7 @@
       "price": 49.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408429",
       "productId": "L3408429|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -541,7 +557,7 @@
       "price": 49.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408429",
       "productId": "L3408429|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -553,7 +569,7 @@
       "price": 49.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408429",
       "productId": "L3408429|V5J0A2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -565,7 +581,7 @@
       "price": 49.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-booster-bundle/p/L3408429",
       "productId": "L3408429|V5C0K3",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -577,7 +593,7 @@
       "price": 89.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-elite-trainer-box/p/L3408421",
       "productId": "L3408421|V5P3W2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -589,7 +605,7 @@
       "price": 89.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-elite-trainer-box/p/L3408421",
       "productId": "L3408421|V5H2E2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -601,7 +617,7 @@
       "price": 89.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-elite-trainer-box/p/L3408421",
       "productId": "L3408421|V5J0A2",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     },
     {
@@ -613,7 +629,7 @@
       "price": 89.99,
       "url": "https://www.londondrugs.com/products/pokemon-tcg-mega-evolution-pitch-black-elite-trainer-box/p/L3408421",
       "productId": "L3408421|V5C0K3",
-      "lastSeen": "2026-07-27T01:00:05Z",
+      "lastSeen": "2026-07-27T15:45:05Z",
       "lastRestock": null
     }
   ]
