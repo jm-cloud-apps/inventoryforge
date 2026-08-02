@@ -54,13 +54,32 @@ def matched_label(title, keywords):
     return None
 
 
-def search_terms(keywords, extra=None):
+def search_terms(keywords, extra=None, prefix=None):
     """Query terms to feed each retailer's search box. We search the watchlist entries
     themselves (e.g. "Prismatic Evolutions") — far better hit rate than a generic "pokemon"
-    search, which buries TCG under plush/figures. `extra` appends any config-level terms."""
+    search, which buries TCG under plush/figures. `extra` appends any config-level terms.
+
+    `prefix` (a retailer's `queryPrefix` in config.json) prepends a brand word to every
+    query. It exists because a general-merchandise retailer's search needs the brand token
+    to find TCG at all — measured live on London Drugs:
+
+        "Ascended Heroes"          -> 0 results     "Pokemon Ascended Heroes" -> 2
+        "Moltres"                  -> 0 results     "Pokemon Moltres"         -> 16
+
+    So the bare queries weren't returning junk, they were returning *nothing* — real
+    products were being missed and logged as "returned nothing after retries". Note the
+    prefix only improves recall; it does NOT clean the results (LD still answers
+    "Pokemon 30th Anniversary" with U2 and Def Leppard vinyl). Precision is the title
+    gate's job — see set_require/set_excludes."""
     out, seen = [], set()
     for t in [k["match"] for k in keywords] + list(extra or []):
-        if t and t.lower() not in seen:
+        if not t:
+            continue
+        # Skip the prefix on a keyword that already names the brand, so we never
+        # search "Pokemon Pokemon Center ..." and narrow ourselves out of results.
+        if prefix and fold(prefix) not in fold(t):
+            t = f"{prefix} {t}"
+        if t.lower() not in seen:
             seen.add(t.lower())
             out.append(t)
     return out

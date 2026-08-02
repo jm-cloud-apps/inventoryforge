@@ -20,13 +20,15 @@
       "storeSearchPostal": "V5H 2E2",
       "maxProducts": 12,
       "fetchQuantity": true,
+      "queryPrefix": "Pokemon",
       "targetStores": [
         { "name": "Kingsway Plaza", "postal": "V5H 2E2" },
         { "name": "Marine Way & Byrne", "postal": "V5J 0A2" },
         { "name": "The Amazing Brentwood", "postal": "V5C 0K3" },
         { "name": "41st & Victoria", "postal": "V5P 3W2" }
       ],
-      "_note": "Per-store availability via the PDP store picker: searches storeSearchPostal, scrapes the store cards, keeps targetStores matched by postal. Status badges seen: 'In Stock' / 'Available for pickup today' / 'Not In Stock'. fetchQuantity=true also reads each store's count ('61 Items in Stock') for in-stock rows: it loads the product once and switches stores in place (the picker reopens via 'Check Availability at Other Stores' once a store is set)."
+      "_note": "Per-store availability via the PDP store picker: searches storeSearchPostal, scrapes the store cards, keeps targetStores matched by postal. Status badges seen: 'In Stock' / 'Available for pickup today' / 'Not In Stock'. fetchQuantity=true also reads each store's count ('61 Items in Stock') for in-stock rows: it loads the product once and switches stores in place (the picker reopens via 'Check Availability at Other Stores' once a store is set).",
+      "_queryPrefix_note": "LD is a general-merchandise store, so its search needs the brand token to surface TCG at all. Measured live: 'Ascended Heroes' and 'Moltres' each returned 0 results, while 'Pokemon Ascended Heroes' returned 2 and 'Pokemon Moltres' returned 16 — the bare queries were missing real products, not just returning junk. It only helps recall; LD still answers 'Pokemon 30th Anniversary' with U2 vinyl, so the watchlist 'require'/'exclude' title gate is what keeps results clean. NOT set for EB Games: it's a game store whose bare set-name searches already work, and it titles products 'Pokemon' with an accent."
     },
     "superstore": {
       "enabled": false,

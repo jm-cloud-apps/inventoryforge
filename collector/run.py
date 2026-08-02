@@ -59,7 +59,9 @@ def collect(args):
     watchlist = load_json("watchlist.json")
     keywords = normalize(watchlist.get("keywords", []))
     set_excludes(watchlist.get("exclude", []))
-    set_require(watchlist.get("require", ["Pokemon"]))
+    # `or` not a dict default: an empty "require": [] would otherwise disable the brand
+    # gate entirely, and every generic keyword starts matching unrelated products again.
+    set_require(watchlist.get("require") or ["Pokemon"])
     if not keywords:
         print("watchlist.json has no keywords — nothing to match. Add some and re-run.")
         return

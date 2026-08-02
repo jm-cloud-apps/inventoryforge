@@ -67,6 +67,36 @@ product titles **and** used as the search query at each retailer:
 **Tip:** specific set names (`"Prismatic Evolutions"`) work far better than broad terms like
 `"Elite Trainer Box"` (which matches every set at every store and makes runs slower).
 
+Two filters keep the results honest, and they do different jobs:
+
+- **`require`** (default `["Pokemon"]`) — a title must contain one of these or it's dropped.
+  Accent-insensitive, so it covers `Pokémon` too. This is what stops `"30th Anniversary"`
+  matching a U2 *Joshua Tree* vinyl.
+- **`exclude`** — drops titles that *are* Pokémon but aren't sealed cards: plush, battle
+  figures, Mattel/Jazwares toys, binders, playmats. `require` can't catch these, because
+  they're genuinely Pokémon-branded. Kept narrow on purpose — `"Battle Figure"`, not
+  `"Figure"`, since *Premium Figure Collection* is a real TCG product.
+
+### Search queries vs. title matching
+
+Each watchlist entry is also used as the **search query** at each retailer. A general-
+merchandise store's search needs the brand word to surface TCG at all, so London Drugs has
+`"queryPrefix": "Pokemon"` in `config.json` — every query goes out as `Pokemon <keyword>`.
+Measured live:
+
+| query | results |
+|---|---|
+| `Ascended Heroes` | **0** |
+| `Pokemon Ascended Heroes` | 2 (incl. the Elite Trainer Box) |
+| `Moltres` | **0** |
+| `Pokemon Moltres` | 16 |
+
+The bare queries weren't returning junk — they were returning *nothing*, and real products
+were being missed while the log said `returned nothing after retries`. The prefix only
+fixes **recall**; London Drugs still answers `Pokemon 30th Anniversary` with U2 and Def
+Leppard vinyl, so **precision** stays the job of `require`/`exclude` above. EB Games has no
+prefix: it's a game store whose bare set-name searches already work.
+
 ## Running
 
 ```bash
@@ -105,6 +135,11 @@ Either scheduled route runs **headed**, so a browser window pops up each cycle (
 ```bash
 launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.inventoryforge.collector.plist
 ```
+
+**Turning it off without a terminal:** the InventoryForge tile in
+[Launch Deck](../LaunchDeck) has a *Background scans* switch that does exactly this
+(`bootout` + `disable` off, `enable` + `bootstrap` on) — worth knowing about when you'd
+rather not have a Chromium window appear mid-meeting.
 
 ## Deploying the dashboard (GitHub Pages)
 
