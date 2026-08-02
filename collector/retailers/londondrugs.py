@@ -9,6 +9,7 @@ LD is Next.js RSC (the store list arrives via a server action — no clean JSON 
 is a DOM-scrape of the picker: slower than EB Games (one PDP + picker per product), but it
 gives true per-store shelf/pickup stock at exactly the stores you care about.
 """
+import html
 import re
 from urllib.parse import quote
 
@@ -149,13 +150,21 @@ def _search_cards(page, origin, term):
           return Object.values(byCode);
         }""")
         if cards:
+            # img@alt arrives HTML-encoded on some cards ("Build &amp; Battle Box"),
+            # which reaches the dashboard verbatim and stops any keyword containing
+            # "&" from ever matching. Decode once here so everything downstream —
+            # matching, alerts, display — sees real text.
+            for c in cards:
+                c["title"] = html.unescape(c["title"])
             return cards
     return cards
 
 
 def _find_products(page, cfg, keywords):
     matched = {}
-    terms = search_terms(keywords, cfg.get("searchTerms"))
+    # queryPrefix ("Pokemon") is what makes LD's search return TCG at all — see
+    # search_terms. Without it "Ascended Heroes" and "Moltres" both come back empty.
+    terms = search_terms(keywords, cfg.get("searchTerms"), prefix=cfg.get("queryPrefix"))
     for n, term in enumerate(terms):
         if n:
             page.wait_for_timeout(1500)      # breathe between queries so the SPA keeps up
